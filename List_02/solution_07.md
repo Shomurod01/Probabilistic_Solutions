@@ -23,7 +23,7 @@ Before using the formula, it is helpful to visualize "slots" being filled:
 
 ---
 
-## 3. Step-by-Step Solutions
+## 3.Solutions
 
 ### Question 1: Assigning Places Among 12 Runners
 **Problem:** In how many ways can the first three places be assigned among 12 runners?
