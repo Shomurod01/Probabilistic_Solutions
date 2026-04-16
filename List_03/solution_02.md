@@ -64,11 +64,11 @@ is the total number of ways to choose any 4 components from 20.
 
 ### Results
 
-- $$P(X = 0) = \frac{1 \times 1365}{4845} \approx 0.2817 \quad (28.2\%)$$
-- $$P(X = 1) = \frac{5 \times 455}{4845} \approx 0.4696 \quad (47.0\%)$$
-- $$P(X = 2) = \frac{10 \times 105}{4845} \approx 0.2167 \quad (21.7\%)$$
-- $$P(X = 3) = \frac{10 \times 15}{4845} \approx 0.0310 \quad (3.1\%)$$
-- $$P(X = 4) = \frac{5 \times 1}{4845} \approx 0.00103 \quad (0.1\%)$$
+- $$P(X = 0) = \frac{1 \times 1365}{4845} \approx 0.2817 \quad (28.2\%))$$
+- $$P(X = 1) = \frac{5 \times 455}{4845} \approx 0.4696 \quad (47.0\%))$$
+- $$P(X = 2) = \frac{10 \times 105}{4845} \approx 0.2167 \quad (21.7\%))$$
+- $$P(X = 3) = \frac{10 \times 15}{4845} \approx 0.0310 \quad (3.1\%))$$
+- $$P(X = 4) = \frac{5 \times 1}{4845} \approx 0.00103 \quad (0.1\%))$$
 
 These probabilities sum to:
 
