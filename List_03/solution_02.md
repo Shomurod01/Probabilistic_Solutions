@@ -24,7 +24,7 @@ A random variable is a number that comes from the experiment and can change each
 Here:
 
 \[
-X = \text{the number of defective components in the sample of 4}
+X ={the number of defective components in the sample of 4}
 \]
 
 Examples:
