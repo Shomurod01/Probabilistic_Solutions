@@ -17,22 +17,21 @@ Because you do not replace items, the probability of picking a defective changes
 
 ---
 
-## 2. Define the random variable \( X \)
+## 2. Define the Random Variable \( X \)
 
 A random variable is a number that comes from the experiment and can change each time you repeat it.
 
 Here:
 
-\[
-X ={the number of defective components in the sample of 4}
-\]
+$$
+X = \text{the number of defective components in the sample of 4}
+$$
 
-Examples:
+### Examples
+
 - If the sample has 0 defective and 4 functional, then \( X = 0 \).
 - If it has 1 defective and 3 functional, then \( X = 1 \).
 - And so on.
-
----
 
 ## 3. Determine the Possible Values of \( X \)
 
