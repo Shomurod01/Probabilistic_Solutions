@@ -49,25 +49,37 @@ X \in \{0, 1, 2, 3, 4\}
 
 ---
 
-## 4. Provide the probability distribution
+## 4. Probability Distribution
 
 We use the hypergeometric formula:
 
-\[
+$$
 P(X = k) = \frac{\binom{5}{k} \binom{15}{4-k}}{\binom{20}{4}}, \quad k = 0,1,2,3,4
-\]
+$$
 
-Where \(\binom{20}{4} = 4845\) is the total number of ways to choose any 4 components from 20.
+Where:
 
-**Results:**
+$$
+\binom{20}{4} = 4845
+$$
 
-- \( P(X=0) = \frac{1 \times 1365}{4845} \approx 0.2817 \) (28.2%)
-- \( P(X=1) = \frac{5 \times 455}{4845} \approx 0.4696 \) (47.0%)
-- \( P(X=2) = \frac{10 \times 105}{4845} \approx 0.2167 \) (21.7%)
-- \( P(X=3) = \frac{10 \times 15}{4845} \approx 0.0310 \) (3.1%)
-- \( P(X=4) = \frac{5 \times 1}{4845} \approx 0.00103 \) (0.1%)
+is the total number of ways to choose any 4 components from 20.
 
-These probabilities add up to 1 (4845/4845). The most likely outcome is 1 defective (nearly half the time), while 4 defectives is very rare.
+### Results
+
+- $$P(X = 0) = \frac{1 \times 1365}{4845} \approx 0.2817 \quad (28.2\%)$$
+- $$P(X = 1) = \frac{5 \times 455}{4845} \approx 0.4696 \quad (47.0\%)$$
+- $$P(X = 2) = \frac{10 \times 105}{4845} \approx 0.2167 \quad (21.7\%)$$
+- $$P(X = 3) = \frac{10 \times 15}{4845} \approx 0.0310 \quad (3.1\%)$$
+- $$P(X = 4) = \frac{5 \times 1}{4845} \approx 0.00103 \quad (0.1\%)$$
+
+These probabilities sum to:
+
+$$
+\frac{4845}{4845} = 1
+$$
+
+The most likely outcome is **1 defective** (nearly half the time), while **4 defectives** is very rare.
 ## 5. Explain what a "success" means in this model
 
 In hypergeometric terminology, a **success** is simply the outcome you are counting. It does **not** mean "good" or "desirable" in everyday language.
