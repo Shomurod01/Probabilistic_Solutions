@@ -5,7 +5,7 @@ Imagine a warehouse with **20 components**. Out of these, **5 are defective** (b
 
 ---
 
-## 1. Describe the random experiment (step by step)
+## 1. Describe the random experiment
 
 - Start with a batch of 20 components: exactly 5 defective, 15 functional. They are mixed together.
 - Randomly select 4 components. "Randomly" means every possible group of 4 has the same chance.
@@ -49,7 +49,7 @@ X \in \{0, 1, 2, 3, 4\}
 
 ---
 
-## 4. Provide the probability distribution (shorter version)
+## 4. Provide the probability distribution
 
 We use the hypergeometric formula:
 
