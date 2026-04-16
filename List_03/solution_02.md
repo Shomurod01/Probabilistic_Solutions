@@ -34,7 +34,7 @@ Examples:
 
 ---
 
-## 3. Determine the possible values of \( X \)
+## 3. Determine the Possible Values of \( X \)
 
 Think about the smallest and largest number of defectives you could get in a sample of 4.
 
@@ -43,11 +43,9 @@ Think about the smallest and largest number of defectives you could get in a sam
 
 So the possible values are:
 
-\[
+$$
 X \in \{0, 1, 2, 3, 4\}
-\]
-
----
+$$
 
 ## 4. Probability Distribution
 
