@@ -49,7 +49,7 @@ X \in \{0, 1, 2, 3, 4\}
 
 ---
 
-## 4. Provide the probability distribution (shorter version)
+## 4. Provide the probability distribution
 
 We use the hypergeometric formula:
 
