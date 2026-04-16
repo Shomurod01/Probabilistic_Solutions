@@ -1,4 +1,4 @@
-# Task 2 — Hypergeometric Model (Sampling from a Batch)
+# Task 2 — Hypergeometric Model
 
 ## The situation in plain words
 Imagine a warehouse with **20 components**. Out of these, **5 are defective** (broken) and **15 are functional** (working). You randomly pick **4 components without replacement** (you don't put any back). You then inspect them and count how many are defective. This is a hypergeometric situation because sampling is without replacement from a finite population.
