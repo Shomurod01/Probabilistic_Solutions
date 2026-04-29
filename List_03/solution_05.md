@@ -4,9 +4,9 @@
 
 - A die is rolled 5 times.
 - Each result is grouped into 3 categories:
-  - Small (1–2) → probability \( \frac{1}{3} \)
-  - Medium (3–4) → probability \( \frac{1}{3} \)
-  - Large (5–6) → probability \( \frac{1}{3} \)
+  - Small (1–2) → probability $ \frac{1}{3} $
+  - Medium (3–4) → probability $ \frac{1}{3} $
+  - Large (5–6) → probability $ \frac{1}{3} $
 
 ---
 
@@ -21,14 +21,14 @@ Instead of recording exact numbers, we group each result into:
 
 At the end, we count how many times each category appears.
 
-So the result looks like:
+So the result is:
 - number of small outcomes,
 - number of medium outcomes,
 - number of large outcomes.
 
 ---
 
-## 2. Sample Space \( \Omega \)
+## 2. Sample Space $ \Omega $
 
 The sample space contains all possible ways to distribute 5 rolls into 3 categories.
 
@@ -37,12 +37,12 @@ $$
 $$
 
 where:
-- \( x_1 \): number of small outcomes  
-- \( x_2 \): number of medium outcomes  
-- \( x_3 \): number of large outcomes  
+- $ x_1 $: number of small outcomes  
+- $ x_2 $: number of medium outcomes  
+- $ x_3 $: number of large outcomes  
 
 Example:
-- \( (2,1,2) \) means:
+- $ (2,1,2) $ means:
   - 2 small, 1 medium, 2 large
 
 ---
@@ -50,9 +50,9 @@ Example:
 ## 3. Multinomial Distribution
 
 We define random variables:
-- \( X_1 \): number of small outcomes  
-- \( X_2 \): number of medium outcomes  
-- \( X_3 \): number of large outcomes  
+- $ X_1 $: number of small outcomes  
+- $ X_2 $: number of medium outcomes  
+- $ X_3 $: number of large outcomes  
 
 Then:
 
@@ -75,6 +75,7 @@ $$
 2 small, 1 medium, and 2 large?
 
 So:
+
 $$
 (x_1, x_2, x_3) = (2,1,2)
 $$
@@ -114,4 +115,4 @@ $$
 - The outcome is the number of times each category appears.
 - The sample space includes all triples that sum to 5.
 - The distribution is multinomial with equal probabilities.
-- We can calculate probabilities using the multinomial formula.
+- We calculate probabilities using the multinomial formula.
