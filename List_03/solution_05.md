@@ -2,30 +2,35 @@
 
 ## Given
 
-- A die is rolled \( n = 5 \) times.
-- Each result is classified into 3 categories:
-  - Small (1–2) → \( p_1 = \frac{1}{3} \)
-  - Medium (3–4) → \( p_2 = \frac{1}{3} \)
-  - Large (5–6) → \( p_3 = \frac{1}{3} \)
+- A die is rolled 5 times.
+- Each result is grouped into 3 categories:
+  - Small (1–2) → probability \( \frac{1}{3} \)
+  - Medium (3–4) → probability \( \frac{1}{3} \)
+  - Large (5–6) → probability \( \frac{1}{3} \)
 
 ---
 
 ## 1. Description of the Random Experiment
 
-We roll a fair six-sided die 5 times.
+We roll a fair die 5 times.
 
-Each roll is grouped into one of three categories:
-- Small (1 or 2)
-- Medium (3 or 4)
-- Large (5 or 6)
+Instead of recording exact numbers, we group each result into:
+- Small
+- Medium
+- Large
 
-The result of the experiment is the number of times each category appears.
+At the end, we count how many times each category appears.
+
+So the result looks like:
+- number of small outcomes,
+- number of medium outcomes,
+- number of large outcomes.
 
 ---
 
 ## 2. Sample Space \( \Omega \)
 
-We describe outcomes using counts of categories instead of listing all sequences.
+The sample space contains all possible ways to distribute 5 rolls into 3 categories.
 
 $$
 \Omega = \{ (x_1, x_2, x_3) \mid x_1 + x_2 + x_3 = 5,\ x_i \ge 0 \}
@@ -36,11 +41,15 @@ where:
 - \( x_2 \): number of medium outcomes  
 - \( x_3 \): number of large outcomes  
 
+Example:
+- \( (2,1,2) \) means:
+  - 2 small, 1 medium, 2 large
+
 ---
 
 ## 3. Multinomial Distribution
 
-Let:
+We define random variables:
 - \( X_1 \): number of small outcomes  
 - \( X_2 \): number of medium outcomes  
 - \( X_3 \): number of large outcomes  
@@ -51,42 +60,70 @@ $$
 (X_1, X_2, X_3) \sim \text{Multinomial}(5, \tfrac{1}{3}, \tfrac{1}{3}, \tfrac{1}{3})
 $$
 
-Probability formula:
+The probability is:
 
 $$
 P(X_1 = x_1, X_2 = x_2, X_3 = x_3)
 = \frac{5!}{x_1! \, x_2! \, x_3!} \left(\frac{1}{3}\right)^5
 $$
 
-subject to:
+---
+
+## 4. Worked Example (Step-by-Step)
+
+**Question:** What is the probability of getting  
+2 small, 1 medium, and 2 large?
+
+So:
+$$
+(x_1, x_2, x_3) = (2,1,2)
+$$
+
+### Step 1: Use the formula
 
 $$
-x_1 + x_2 + x_3 = 5
+P = \frac{5!}{2! \, 1! \, 2!} \left(\frac{1}{3}\right)^5
+$$
+
+### Step 2: Calculate factorials
+
+$$
+5! = 120,\quad 2! = 2,\quad 1! = 1
+$$
+
+$$
+P = \frac{120}{2 \cdot 1 \cdot 2} \left(\frac{1}{3}\right)^5
+$$
+
+### Step 3: Simplify
+
+$$
+P = \frac{120}{4} \cdot \frac{1}{243}
+= 30 \cdot \frac{1}{243}
+$$
+
+$$
+P = \frac{30}{243} = \frac{10}{81}
 $$
 
 ---
 
-## 4. Interpretation of Parameters
+## 5. Interpretation (How to Explain to Professor)
 
-- \( n = 5 \): number of trials (dice rolls)
-- \( k = 3 \): number of categories
-- \( p_1 = p_2 = p_3 = \frac{1}{3} \): probability of each category
+- We repeat the same experiment 5 times (rolling a die).
+- Each result falls into one of 3 categories.
+- Each category has the same probability \( \frac{1}{3} \).
+- The multinomial distribution tells us how likely each combination is.
 
-### Meaning:
-
-- Each roll has an equal chance to be small, medium, or large.
-- The model describes how the 5 rolls are distributed among the 3 categories.
-- Example outcome:
-  - \( (2, 1, 2) \) means:
-    - 2 small
-    - 1 medium
-    - 2 large
+**Key idea:**
+We are not interested in order — only in counts.
 
 ---
 
-## Summary
+## Final Summary (Short Version to Say)
 
-- We group outcomes into 3 categories instead of tracking exact values.
-- The sample space contains all triples that sum to 5.
-- The multinomial distribution gives probabilities of each possible combination.
-- Since all probabilities are equal, the formula simplifies using \( (\frac{1}{3})^5 \).
+- We roll a die 5 times and group results into 3 categories.
+- The outcome is the number of times each category appears.
+- The sample space includes all triples that sum to 5.
+- The distribution is multinomial with equal probabilities.
+- We can calculate probabilities using the multinomial formula.
