@@ -1,118 +1,70 @@
 # Task 5 — Multinomial Model (Categories of Outcomes)
 
-## Given
+---
 
-- A die is rolled 5 times.
-- Each result is grouped into 3 categories:
-  - Small (1–2) → probability \( \frac{1}{3} \)
-  - Medium (3–4) → probability \( \frac{1}{3} \)
-  - Large (5–6) → probability \( \frac{1}{3} \)
+## Task 1: Describe the Random Experiment
+
+A fair six-sided die is rolled **5 times independently**. Each result is classified into one of three equally likely categories:
+
+| Category | Outcomes | Probability |
+|----------|----------|-------------|
+| Small | 1 or 2 | $p_1 = \frac{1}{3}$ |
+| Medium | 3 or 4 | $p_2 = \frac{1}{3}$ |
+| Large | 5 or 6 | $p_3 = \frac{1}{3}$ |
+
+Each probability equals $\frac{1}{3}$ because two faces out of six fall into each category:
+
+$$P(\text{small}) = \frac{2}{6} = \frac{1}{3}, \quad P(\text{medium}) = \frac{2}{6} = \frac{1}{3}, \quad P(\text{large}) = \frac{2}{6} = \frac{1}{3}$$
+
+The categories are **mutually exclusive** (a roll belongs to exactly one) and **collectively exhaustive** (every roll belongs to some category).
 
 ---
 
-## 1. Description of the Random Experiment
+## Task 2: Define the Sample Space
 
-We roll a fair die 5 times.
+Each outcome is a triple $(x_1, x_2, x_3)$ where $x_i$ counts how many rolls fell into category $i$.
 
-Instead of recording exact numbers, we group each result into:
-- Small
-- Medium
-- Large
+$$\Omega = \{(x_1, x_2, x_3) \mid x_1 + x_2 + x_3 = 5, \quad x_i \in \mathbb{N}_0\}$$
 
-At the end, we count how many times each category appears.
+The total number of outcomes (by stars and bars):
 
-So the result is:
-- number of small outcomes,
-- number of medium outcomes,
-- number of large outcomes.
+$$|\Omega| = \binom{5 + 3 - 1}{3 - 1} = \binom{7}{2} = 21$$
 
----
+**Selected examples:**
 
-## 2. Sample Space \( \Omega \)
-
-The sample space contains all possible ways to distribute 5 rolls into 3 categories.
-
-\[
-\Omega = \{ (x_1, x_2, x_3) \mid x_1 + x_2 + x_3 = 5,\ x_i \ge 0 \}
-\]
-
-where:
-- \( x_1 \): number of small outcomes  
-- \( x_2 \): number of medium outcomes  
-- \( x_3 \): number of large outcomes  
-
-Example:
-- \( (2,1,2) \) means:
-  - 2 small, 1 medium, 2 large
+| $(x_1, x_2, x_3)$ | Meaning |
+|--------------------|---------|
+| $(5, 0, 0)$ | All 5 rolls were small |
+| $(2, 2, 1)$ | 2 small, 2 medium, 1 large |
+| $(0, 0, 5)$ | All 5 rolls were large |
 
 ---
 
-## 3. Multinomial Distribution
+## Task 3: Specify the Multinomial Distribution
 
-We define random variables:
-- \( X_1 \): number of small outcomes  
-- \( X_2 \): number of medium outcomes  
-- \( X_3 \): number of large outcomes  
+The probability of observing exactly $x_1$ small, $x_2$ medium, $x_3$ large results is:
 
-Then:
+$$\boxed{P(X_1 = x_1, X_2 = x_2, X_3 = x_3) = \frac{5!}{x_1!\, x_2!\, x_3!} \cdot \left(\frac{1}{3}\right)^5}$$
 
-\[
-(X_1, X_2, X_3) \sim \text{Multinomial}(5, \tfrac{1}{3}, \tfrac{1}{3}, \tfrac{1}{3})
-\]
+**Worked example** — probability of $(x_1=2, x_2=2, x_3=1)$:
 
-The probability is:
+$$P = \frac{5!}{2!\cdot 2!\cdot 1!} \cdot \left(\frac{1}{3}\right)^5 = 30 \cdot \frac{1}{243} = \frac{30}{243} \approx 12.35\%$$
 
-\[
-P(X_1 = x_1, X_2 = x_2, X_3 = x_3)
-= \frac{5!}{x_1! \, x_2! \, x_3!} \left(\frac{1}{3}\right)^5
-\]
+**Edge case** — all 5 rolls small $(x_1=5, x_2=0, x_3=0)$:
+
+$$P = \frac{5!}{5!\cdot 0!\cdot 0!} \cdot \left(\frac{1}{3}\right)^5 = 1 \cdot \frac{1}{243} \approx 0.41\%$$
 
 ---
 
-## 4. Worked Example (Step‑by‑Step)
+## Task 4: Interpret the Parameters
 
-**Question:** What is the probability of getting  
-2 small, 1 medium, and 2 large?
+| Parameter | Value | Interpretation |
+|-----------|-------|----------------|
+| $n = 5$ | 5 rolls | Fixed number of trials; enforces $x_1 + x_2 + x_3 = 5$ |
+| $p_1 = p_2 = p_3 = \frac{1}{3}$ | Equal probabilities | No category is favoured; all outcomes are equally likely per roll |
+| $\frac{n!}{x_1!\, x_2!\, x_3!}$ | Varies | Counts distinct orderings that produce the same counts |
+| $p_1 + p_2 + p_3 = 1$ | Constraint | Categories cover all possible outcomes |
 
-So:
-
-\[
-(x_1, x_2, x_3) = (2,1,2)
-\]
-
-### Step 1: Use the formula
-
-\[
-P = \frac{5!}{2! \, 1! \, 2!} \left(\frac{1}{3}\right)^5
-\]
-
-### Step 2: Calculate factorials
-
-\[
-5! = 120,\quad 2! = 2,\quad 1! = 1
-\]
-
-\[
-P = \frac{120}{2 \cdot 1 \cdot 2} \left(\frac{1}{3}\right)^5
-\]
-
-### Step 3: Simplify
-
-\[
-P = \frac{120}{4} \cdot \frac{1}{243}
-= 30 \cdot \frac{1}{243}
-\]
-
-\[
-P = \frac{30}{243} = \frac{10}{81}
-\]
-
----
-
-## Final Summary
-
-- We roll a die 5 times and group results into 3 categories.
-- The outcome is the number of times each category appears.
-- The sample space includes all triples that sum to 5.
-- The distribution is multinomial with equal probabilities.
-- We calculate probabilities using the multinomial formula.
+**The multinomial coefficient explained simply:** for $(2, 2, 1)$ the coefficient is 30 — meaning
+there are **30 different sequences** of 5 rolls that all produce the same final counts.
+Each sequence has probability $\left(\frac{1}{3}\right)^5$, so the total is $30 \times \frac{1}{243}$.
