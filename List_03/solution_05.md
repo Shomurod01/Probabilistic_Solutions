@@ -108,7 +108,7 @@ $$
 
 ---
 
-## Final Summary (Short Version to Say)
+## Final Summary
 
 - We roll a die 5 times and group results into 3 categories.
 - The outcome is the number of times each category appears.
