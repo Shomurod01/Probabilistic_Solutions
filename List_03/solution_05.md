@@ -108,18 +108,6 @@ $$
 
 ---
 
-## 5. Interpretation (How to Explain to Professor)
-
-- We repeat the same experiment 5 times (rolling a die).
-- Each result falls into one of 3 categories.
-- Each category has the same probability \( \frac{1}{3} \).
-- The multinomial distribution tells us how likely each combination is.
-
-**Key idea:**
-We are not interested in order — only in counts.
-
----
-
 ## Final Summary (Short Version to Say)
 
 - We roll a die 5 times and group results into 3 categories.
