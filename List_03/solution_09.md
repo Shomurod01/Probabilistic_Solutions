@@ -1,121 +1,53 @@
 # Task 9 — Poisson Model
 
-## Useful Definitions and Formulas
+---
 
-### 1. Poisson Distribution
-A random variable \( X \) follows a Poisson distribution if it models the number of events occurring in a fixed interval of time or space.
+## Setup
 
-\[
-X \sim \text{Poisson}(\lambda)
-\]
+A customer service center receives on average **5 requests per hour**. We model this with a Poisson distribution:
 
-where:
-- \( \lambda \) = average number of events in the interval.
+$$X \sim \text{Poisson}(\lambda = 5)$$
+
+The Poisson probability formula is:
+
+$$P(X = k) = \frac{\lambda^k \cdot e^{-\lambda}}{k!}$$
 
 ---
 
-### 2. Poisson Probability Formula
+## Part 1: Probability of Exactly 3 Requests
 
-$$
-P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}
-$$
+Substitute $\lambda = 5$ and $k = 3$:
 
----
+$$P(X = 3) = \frac{5^3 \cdot e^{-5}}{3!} = \frac{125 \cdot e^{-5}}{6}$$
 
-### 3. Complement Rule
+Since $e^{-5} \approx 0.006738$:
 
-$$
-P(X \ge 1) = 1 - P(X = 0)
-$$
+$$P(X = 3) = \frac{125 \cdot 0.006738}{6} = \frac{0.84224}{6} \approx \boxed{0.1404 = 14.04\%}$$
 
 ---
 
-# Given
+## Part 2: Probability of At Least One Request
 
-- Average number of requests per hour:
+"At least one" means $X \geq 1$. It is easiest to use the complement:
 
-$$
-\lambda = 5
-$$
+$$P(X \geq 1) = 1 - P(X = 0)$$
 
-Let \( X \) be the number of requests in one hour:
+First calculate $P(X = 0)$:
 
-$$
-X \sim \text{Poisson}(5)
-$$
+$$P(X = 0) = \frac{5^0 \cdot e^{-5}}{0!} = \frac{1 \cdot e^{-5}}{1} = e^{-5} \approx 0.006738$$
 
----
+Therefore:
 
-# Solutions
+$$P(X \geq 1) = 1 - 0.006738 \approx \boxed{0.9933 = 99.33\%}$$
 
-## 1. Probability that exactly 3 requests occur
-
-Using the Poisson formula:
-
-$$
-P(X = 3) = \frac{5^3 e^{-5}}{3!}
-$$
-
-Compute components:
-
-$$
-5^3 = 125
-$$
-
-$$
-3! = 6
-$$
-
-So:
-
-$$
-P(X = 3) = \frac{125 \cdot e^{-5}}{6}
-$$
-
-Approximate:
-
-$$
-e^{-5} \approx 0.006737
-$$
-
-$$
-P(X = 3) \approx \frac{125 \cdot 0.006737}{6}
-$$
-
-$$
-P(X = 3) \approx \frac{0.842125}{6} \approx 0.1404
-$$
-
-**Answer:** approximately \( 0.140 \)
+This is very close to 1 — with an average of 5 requests per hour, it is almost certain that
+**at least one request arrives**.
 
 ---
 
-## 2. Probability that at least one request occurs
+## Summary
 
-Using the complement rule:
-
-$$
-P(X \ge 1) = 1 - P(X = 0)
-$$
-
-Compute:
-
-$$
-P(X = 0) = \frac{5^0 e^{-5}}{0!} = e^{-5}
-$$
-
-Thus:
-
-$$
-P(X \ge 1) = 1 - e^{-5}
-$$
-
-Approximate:
-
-$$
-P(X \ge 1) = 1 - 0.006737 = 0.9933
-$$
-
-**Answer:** approximately \( 0.993 \)
-
----
+| Question | Calculation | Result |
+|----------|-------------|--------|
+| Exactly 3 requests | $\frac{5^3 \cdot e^{-5}}{3!}$ | $\approx 14.04\%$ |
+| At least one request | $1 - e^{-5}$ | $\approx 99.33\%$ |
