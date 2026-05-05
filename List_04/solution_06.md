@@ -81,7 +81,7 @@ In a finite equally-likely model, $P(\Omega) = |\Omega|/|\Omega| = 1$.
 
 **Why it is natural:** If $A$ and $B$ cannot both occur simultaneously ($A \cap B = \emptyset$), then in any sequence of $n$ trials:
 
-$$\#\{\text{times } A \cup B \text{ occurs}\} = \#\{\text{times } A \text{ occurs}\} + \#\{\text{times } B \text{ occurs}\}$$
+$$\lvert\{\text{times } A \cup B \text{ occurs}\}\rvert = \lvert\{\text{times } A \text{ occurs}\}\rvert + \lvert\{\text{times } B \text{ occurs}\}\rvert$$
 
 Dividing by $n$:
 
@@ -104,7 +104,7 @@ This is the **subtle and genuinely new** content of the Kolmogorov framework.
 Finite additivity says: for any *fixed* finite number $k$ of disjoint events, the probability of their union equals the sum of their probabilities.
 
 But in mathematics and applications, we routinely encounter **infinite sequences of events**. Examples:
-- The event "a fair coin eventually shows heads" = $\bigcup_{n=1}^{\infty} \{$first heads on toss $n\}$
+- The event "a fair coin eventually shows heads" = $\bigcup_{n=1}^{\infty} \{\text{first heads on toss } n\}$
 - Continuous distributions defined via limits
 - Any event in a countably infinite sample space (like $\Omega = \mathbb{N}$)
 
