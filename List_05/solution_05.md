@@ -2,7 +2,7 @@
 
 ---
 
-## 1. The Experiment
+## 0. The Experiment
 
 **Idea:** Count how many random events happen in a fixed interval of time or space.
 
@@ -37,7 +37,7 @@ So for our example: $X(\omega) = 7$
 
 ---
 
-## 2. The PMF and Its Parameter
+## 1. The PMF and Its Parameter
 
 ### The Parameter λ (lambda)
 
@@ -79,7 +79,7 @@ $$P(X = 2) = \frac{e^{-3} \cdot 3^2}{2!} = \frac{0.0498 \times 9}{2} = 0.2240$$
 
 ---
 
-## 3. Support
+## 2. Support
 
 $$\text{Support} = \{0, 1, 2, 3, \ldots\}$$
 
@@ -93,7 +93,7 @@ $$\text{Support} = \{0, 1, 2, 3, \ldots\}$$
 
 ---
 
-## 4. PMF Graphs — What They Show
+## 3. PMF Graphs — What They Show
 
 Each graph answers: **given λ, how likely is each count k?**
 
@@ -162,7 +162,7 @@ Peak is around k = 6 and k = 7. The graph looks almost like a bell curve.
 
 ---
 
-## 5. CDF Graphs
+## 4. CDF Graphs
 
 The CDF answers: **what is the probability of getting k or fewer events?**
 
@@ -223,7 +223,7 @@ Climbs slowly, needs k ≈ 12 to approach 1.0.
 
 ---
 
-## 6. How Shape Changes When λ Increases
+## 5. How Shape Changes When λ Increases
 
 Think of sliding λ like a volume knob:
 
@@ -244,7 +244,7 @@ Think of sliding λ like a volume knob:
 
 ---
 
-## 7. Computing Probabilities
+## 6. Computing Probabilities
 
 All four types use the same base formula. We use **λ = 3** for all examples.
 
@@ -303,7 +303,7 @@ $$P(2 \leq X \leq 5) = P(X \leq 5) - P(X \leq 1) = 0.9161 - 0.1991 = 0.7170$$
 
 ---
 
-## 8. CDF vs Direct Summation
+## 7. CDF vs Direct Summation
 
 Both methods give the **same answer**. The CDF is just a shortcut name for the sum.
 
@@ -333,7 +333,7 @@ Same answer. ✅
 
 ---
 
-## 9. Practical Applications
+## 8. Practical Applications
 
 | Field | What X counts | Typical λ |
 |-------|--------------|-----------|
@@ -359,7 +359,7 @@ If yes to all four → use Poisson.
 
 ---
 
-## 10. Poisson in the Distribution Family
+## 9. Poisson in the Distribution Family
 
 | Property | Poisson | Geometric | Binomial |
 |----------|---------|-----------|----------|
