@@ -4,7 +4,7 @@
 
 ---
 
-## 1. The Experiment
+## 0. The Experiment
 
 ### Setup
 Repeat independent **Bernoulli trials** (each trial: success with probability `p`, failure with probability `1-p`) **until the first success**.
@@ -24,7 +24,7 @@ For the example above: $X(\text{FFS}) = 3$
 
 ---
 
-## 2. PMF and CDF
+## 1. PMF and CDF
 
 ### Probability Mass Function (PMF)
 $$\boxed{P(X = k) = (1-p)^{k-1} \cdot p}, \quad k = 1, 2, 3, \ldots$$
@@ -44,7 +44,7 @@ $$P(X \leq k) = 1 - P(X > k) = 1 - P(\text{first } k \text{ trials all fail}) = 
 
 ---
 
-## 3. Support and Why It Is Infinite
+## 2. Support and Why It Is Infinite
 
 ### Support
 $$\text{Support} = \{1, 2, 3, 4, \ldots\} = \mathbb{Z}^+$$
@@ -61,7 +61,7 @@ There is **no upper bound** on how long you might wait for the first success.
 
 ---
 
-## 4. PMF Graphs for Several Values of p
+## 3. PMF Graphs for Several Values of p
 
 ```
 P(X=k)
@@ -93,7 +93,7 @@ P(X=k)
 
 ---
 
-## 5. CDF Graphs for the Same Values of p
+## 4. CDF Graphs for the Same Values of p
 
 ```
 F(k) = P(X ≤ k)
@@ -127,7 +127,7 @@ F(k) = P(X ≤ k)
 
 ---
 
-## 6. How Graphs Change with p
+## 5. How Graphs Change with p
 
 | p larger (closer to 1) | p smaller (closer to 0) |
 |------------------------|------------------------|
@@ -141,7 +141,7 @@ F(k) = P(X ≤ k)
 
 ---
 
-## 7. Computing Probabilities
+## 6. Computing Probabilities
 
 ### P(X = k) — exact trial
 $$P(X = k) = (1-p)^{k-1} \cdot p$$
@@ -175,7 +175,7 @@ $$P(3 \leq X \leq 6) = (0.7)^2 - (0.7)^6 = 0.49 - 0.1176 = 0.3724$$
 
 ---
 
-## 8. Interpreting Tail Probabilities
+## 7. Interpreting Tail Probabilities
 
 $$P(X > k) = (1-p)^k$$
 
@@ -196,7 +196,7 @@ $$P(X > m + n \mid X > m) = P(X > n)$$
 
 ---
 
-## 9. Practical Applications
+## 8. Practical Applications
 
 | Application | X = ? | p = ? |
 |-------------|-------|-------|
@@ -216,7 +216,7 @@ Use the geometric model whenever:
 
 ---
 
-## 10. Geometric in the Discrete Distribution Family
+## 9. Geometric in the Discrete Distribution Family
 
 | Property | Geometric | Binomial | Poisson |
 |----------|-----------|----------|---------|
