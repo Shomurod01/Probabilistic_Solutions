@@ -1,4 +1,4 @@
-# Poisson Distribution — Simple Guide
+# Poisson Distribution 
 
 ---
 
