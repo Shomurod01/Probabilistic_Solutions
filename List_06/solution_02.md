@@ -1,19 +1,5 @@
 # Problem 2 — Four Regions of a Sample Space
 
-## 🔑 Key Terms Explained
-
-Before we start, let's make sure the vocabulary is clear.
-
----
-
-### 🎫 What is a "ticket"?
-
-When a customer has a problem, they submit a **support ticket** — basically a written request for help.
-
-> **Example:** "My software keeps crashing" or "I forgot my password"
-
----
-
 ### 🔧 Technical ticket (T)
 
 A ticket is **technical** if the problem involves software, hardware, systems, or anything that requires technical expertise to solve.
