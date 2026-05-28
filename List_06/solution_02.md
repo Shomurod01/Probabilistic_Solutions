@@ -1,204 +1,97 @@
-# Problem 2 — Four Regions of a Sample Space
+# Problem 2 — Four regions of a sample space
 
-### 🔧 Technical ticket (T)
+We have the following contingency table (counts of tickets):
 
-A ticket is **technical** if the problem involves software, hardware, systems, or anything that requires technical expertise to solve.
+| Ticket type | Solved (S) | Not solved (Sᶜ) | Total |
+|-------------|-----------|----------------|-------|
+| Technical (T) | 90 | 60 | 150 |
+| Non-technical (Tᶜ) | 160 | 40 | 200 |
+| Total | 250 | 100 | 350 |
 
-| ✅ Technical ticket examples | ❌ Non-technical ticket examples |
-|---|---|
-| "The server is down" | "I want to cancel my subscription" |
-| "I get error code 404" | "Can I get a refund?" |
-| "My app won't install" | "How do I update my billing info?" |
+Total number of tickets = 350.
 
-> In our dataset: **150 tickets** are technical, **200 tickets** are non-technical.
+## 1. Probabilities of the four disjoint regions
 
----
+Each probability = (number of tickets in that region) / (total tickets).
 
-### ✅ Solved during first contact (S)
+- **P(T ∩ S)** = 90/350 = 9/35  
+- **P(T ∩ Sᶜ)** = 60/350 = 6/35  
+- **P(Tᶜ ∩ S)** = 160/350 = 16/35  
+- **P(Tᶜ ∩ Sᶜ)** = 40/350 = 4/35  
 
-**First contact** means the very first interaction between the customer and the support agent.
+**Check sum:**  
+9/35 + 6/35 + 16/35 + 4/35 = 35/35 = 1 ✓
 
-- If the agent solves the problem **in that one call/chat** → ✅ Solved on first contact
-- If the problem needs **follow-up, escalation, or more investigation** → ❌ Not solved on first contact
+## 2. Compute P(T ∪ S)
 
-> **Example:**
->
-> 🟢 Customer calls → agent resets the password → problem solved immediately → **first contact ✓**
->
-> 🔴 Customer calls → agent says "we need to investigate, we'll email you" → **not first contact ✗**
+**Meaning:** Ticket is technical **or** solved (or both).  
+It includes three regions: T∩S, T∩Sᶜ, Tᶜ∩S.
 
-> In our dataset: **250 tickets** were solved on first contact, **100 were not**.
+\[
+P(T \cup S) = \frac{9}{35} + \frac{6}{35} + \frac{16}{35} = \frac{31}{35}
+\]
 
----
+**Alternative formula (inclusion–exclusion):**  
+\[
+P(T \cup S) = P(T) + P(S) - P(T \cap S)
+\]
+\[
+P(T) = \frac{150}{350} = \frac{15}{35},\quad P(S) = \frac{250}{350} = \frac{25}{35},\quad P(T \cap S) = \frac{9}{35}
+\]
+\[
+P(T \cup S) = \frac{15}{35} + \frac{25}{35} - \frac{9}{35} = \frac{31}{35} \quad \checkmark
+\]
 
-## 📋 Data Table
+## 3. Compute P(Tᶜ ∪ S)
 
-| Ticket type | S (solved 1st contact) | Sᶜ (not solved 1st contact) | Total |
-|---|:---:|:---:|:---:|
-| T (technical) | 90 | 60 | 150 |
-| Tᶜ (non-technical) | 160 | 40 | 200 |
-| **Total** | **250** | **100** | **350** |
+**Meaning:** Ticket is non‑technical **or** solved.  
+Includes: T∩S, Tᶜ∩S, Tᶜ∩Sᶜ.
 
-> **Every probability = count ÷ 350** (total tickets)
+\[
+P(T^c \cup S) = \frac{9}{35} + \frac{16}{35} + \frac{4}{35} = \frac{29}{35}
+\]
 
----
+**Alternative using complement:**  
+The complement of (Tᶜ ∪ S) is T ∩ Sᶜ.  
+\[
+P(T^c \cup S) = 1 - P(T \cap S^c) = 1 - \frac{6}{35} = \frac{29}{35}
+\]
 
-## 🗺️ The Four Regions — Visualized
+## 4. Conditional probabilities
 
-Think of it like a 2×2 table of possibilities. Every single ticket falls into exactly one of these four boxes:
+**Definition:**  
+\[
+P(S \mid T) = \frac{P(S \cap T)}{P(T)} = \frac{90/350}{150/350} = \frac{90}{150} = \frac{3}{5} = 0.6
+\]
 
-```
-                    S (solved)          Sᶜ (not solved)
-              ┌─────────────────┬──────────────────┐
-  T           │   T ∩ S         │   T ∩ Sᶜ         │
-  (technical) │   90 tickets    │   60 tickets      │
-              ├─────────────────┼──────────────────┤
-  Tᶜ          │   Tᶜ ∩ S        │   Tᶜ ∩ Sᶜ        │
-  (non-tech)  │   160 tickets   │   40 tickets      │
-              └─────────────────┴──────────────────┘
-```
+\[
+P(S \mid T^c) = \frac{P(S \cap T^c)}{P(T^c)} = \frac{160/350}{200/350} = \frac{160}{200} = \frac{4}{5} = 0.8
+\]
 
-- **Top-left:** Technical AND solved → 90 tickets
-- **Top-right:** Technical AND NOT solved → 60 tickets
-- **Bottom-left:** Non-technical AND solved → 160 tickets
-- **Bottom-right:** Non-technical AND NOT solved → 40 tickets
+## 5. Does being a technical ticket change the probability of being solved?
 
----
+Yes, because:  
+- \(P(S \mid T) = 0.6\)  
+- \(P(S \mid T^c) = 0.8\)  
+- Overall \(P(S) = 250/350 \approx 0.714\)
 
-## Part 1 — The Four Region Probabilities
-
-**Step 1 — P(T ∩ S):** technical AND solved on first contact
-
-$$P(T \cap S) = \frac{90}{350} \approx 0.2571$$
-
-**Step 2 — P(T ∩ Sᶜ):** technical AND NOT solved on first contact
-
-$$P(T \cap S^c) = \frac{60}{350} \approx 0.1714$$
-
-**Step 3 — P(Tᶜ ∩ S):** non-technical AND solved on first contact
-
-$$P(T^c \cap S) = \frac{160}{350} \approx 0.4571$$
-
-**Step 4 — P(Tᶜ ∩ Sᶜ):** non-technical AND NOT solved on first contact
-
-$$P(T^c \cap S^c) = \frac{40}{350} \approx 0.1143$$
-
-### Summary
-
-| Region | Meaning | Count | Probability |
-|---|---|:---:|:---:|
-| P(T ∩ S) | technical & solved | 90 | **0.2571** |
-| P(T ∩ Sᶜ) | technical & not solved | 60 | **0.1714** |
-| P(Tᶜ ∩ S) | non-technical & solved | 160 | **0.4571** |
-| P(Tᶜ ∩ Sᶜ) | non-technical & not solved | 40 | **0.1143** |
-
-### ✔️ Verification
-
-$$0.2571 + 0.1714 + 0.4571 + 0.1143 = \mathbf{1.0000} \ ✓$$
-
-The four regions are **disjoint** (no overlap) and cover the **entire sample space**, so they must sum to 1.
+Technical tickets have a **lower** chance (60%) of being solved on first contact compared to non‑technical tickets (80%).  
+Thus, the event “technical” does affect the probability of “solved” – they are **not independent**.
 
 ---
 
-## Part 2 — Union Probabilities
+## Final answers in a table
 
-**What does "union" (∪) mean?**
+| Region | Probability |
+|--------|-------------|
+| P(T ∩ S) | 9/35 |
+| P(T ∩ Sᶜ) | 6/35 |
+| P(Tᶜ ∩ S) | 16/35 |
+| P(Tᶜ ∩ Sᶜ) | 4/35 |
 
-> P(A ∪ B) = probability that **at least one** of A or B happens.
-> "A OR B (or both)"
+- \(P(T \cup S) = \frac{31}{35}\)  
+- \(P(T^c \cup S) = \frac{29}{35}\)  
+- \(P(S \mid T) = \frac{3}{5}\)  
+- \(P(S \mid T^c) = \frac{4}{5}\)  
 
-**Formula (inclusion-exclusion):**
-
-$$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
-
-We subtract the intersection because it gets counted twice otherwise.
-
-**Shortcut using complement:**
-
-$$P(A \cup B) = 1 - P(A^c \cap B^c)$$
-
----
-
-### P(T ∪ S) — technical OR solved (or both)
-
-$$P(T \cup S) = \frac{150}{350} + \frac{250}{350} - \frac{90}{350} = \frac{310}{350} \approx \mathbf{0.8857}$$
-
-Check using complement:
-
-$$1 - P(T^c \cap S^c) = 1 - 0.1143 = 0.8857 \ ✓$$
-
-> The only tickets **excluded** are non-technical AND not solved — just 40 out of 350.
-
----
-
-### P(Tᶜ ∪ S) — non-technical OR solved (or both)
-
-$$P(T^c \cup S) = \frac{200}{350} + \frac{250}{350} - \frac{160}{350} = \frac{290}{350} \approx \mathbf{0.8286}$$
-
-Check using complement:
-
-$$1 - P(T \cap S^c) = 1 - 0.1714 = 0.8286 \ ✓$$
-
-> The only tickets **excluded** are technical AND not solved — just 60 out of 350.
-
----
-
-## Part 3 — Conditional Probabilities
-
-**What does "conditional probability" mean?**
-
-> P(S | T) = "Given that we already know the ticket is technical, what is the probability it was solved?"
-
-**The key idea:** we **zoom in** to just one group, and calculate within that group.
-
-> 🔍 Instead of looking at all 350 tickets, we only look at the **150 technical tickets**.
-> Out of those 150, how many were solved? → **90**
-
-**Formula:**
-
-$$P(S \mid T) = \frac{P(T \cap S)}{P(T)} = \frac{\text{tickets that are technical AND solved}}{\text{all technical tickets}}$$
-
----
-
-### P(S | T) — solved, given technical ticket
-
-$$P(S \mid T) = \frac{90/350}{150/350} = \frac{90}{150} = \mathbf{0.60}$$
-
-> Out of every 10 technical tickets, **6 are solved** on first contact.
-
----
-
-### P(S | Tᶜ) — solved, given non-technical ticket
-
-$$P(S \mid T^c) = \frac{160/350}{200/350} = \frac{160}{200} = \mathbf{0.80}$$
-
-> Out of every 10 non-technical tickets, **8 are solved** on first contact.
-
----
-
-## Part 4 — Does Ticket Type Affect First-Contact Resolution?
-
-**Yes — being a technical ticket significantly lowers the probability of first-contact resolution.**
-
-If ticket type had **no effect**, we would expect:
-
-$$P(S \mid T) = P(S \mid T^c) = P(S) \quad \text{(all equal)}$$
-
-But we found:
-
-| Group | First-contact resolution rate |
-|---|:---:|
-| Technical tickets | **60%** |
-| Non-technical tickets | **80%** |
-| All tickets — P(S) | **71.4%** |
-
-The gap is **20 percentage points**.
-
-**Why does this make sense intuitively?**
-
-Technical problems (server errors, software bugs) often require investigation, specialist knowledge, or multiple steps — so they're harder to solve in a single interaction. Non-technical problems (billing, account info) are usually straightforward and quick to resolve.
-
-**Formal conclusion:**
-
-Since P(S | T) ≠ P(S | Tᶜ), the events T and S are **not independent**.  
-Ticket type **does** change the probability of first-contact resolution.
+Yes, being technical changes the probability (it lowers it).
